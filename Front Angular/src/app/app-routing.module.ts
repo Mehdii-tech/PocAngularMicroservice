@@ -5,11 +5,6 @@ import { AuthComponent } from './auth/auth.component';
 
 const routes: Routes = [
   { path: 'auth', component: AuthComponent,    
-    children: [
-      {
-        path: '', // child route path
-        component: AuthComponent, // child route component that the router renders
-      }, ]
   },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
