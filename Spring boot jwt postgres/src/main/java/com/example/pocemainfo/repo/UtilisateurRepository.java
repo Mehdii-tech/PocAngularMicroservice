@@ -8,5 +8,5 @@ import java.util.List;
 
 @RepositoryRestResource
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> {
-    public List<Utilisateur> findByFirstnameContains(String firstname);
+    public Utilisateur findByEmail(String email);
 }
