@@ -1,0 +1,73 @@
+<div class="  flex-col my-8 text-center max-w-2xl  xs:max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto   ">
+    <h1 class=" text-gray-500 text-8xl md:text-7xl font-bold  text-center ">
+    Update User
+    </h1>
+</div> 
+<form class="w-full pt-32 container  mx-auto max-w-lg" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="flex flex-wrap  -mx-3 mb-6">
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+          First Name
+        </label>
+        <input  [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }"  type="text" formControlName="firstname" class=" form-control appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane">
+        <div *ngIf="submitted && f['firstname'].errors['minlength']" class="invalid-feedback">
+            <p class="text-gray-600 text-xs italic">Please fill out this field at least 3 char</p>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+          Last Name
+        </label>
+        <input  [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors }"  type="text" formControlName="lastname" class=" form-control appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
+        <div *ngIf="submitted && f['lastname'].errors['minlength']" class="invalid-feedback">
+            <p class="text-gray-600 text-xs italic">Please fill out this field at least 2 char</p>
+        </div>
+    </div>
+    <div class="w-full md:w-1/2 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+          Email
+        </label>
+        <input  [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"  type="text" formControlName="email" class=" form-control appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
+        <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="submitted && f['email'].errors['minlength']" class="invalid-feedback">
+            <p class="text-gray-600 text-xs italic">Please fill out this field at least 6 char</p></div>
+            <div *ngIf="submitted && f['email'].errors['email']" class="invalid-feedback"><p class="text-gray-600 text-xs italic">Please @ real email </p></div>
+        </div>
+    </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+          Password
+        </label>
+        <input [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"  type="password" formControlName="password" class=" form-control appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="******************">
+        <div *ngIf="submitted && f['password'].errors['minlength']" class="invalid-feedback">
+            <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like more than 6 char</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-2">
+      <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+          State
+        </label>
+        <div class="relative">
+          <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+            <option>New Mexico</option>
+            <option>Missouri</option>
+            <option>Texas</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group text-white">
+        <button [disabled]="loading" class="btn btn-primary ">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Confirmer
+        </button>
+        <a routerLink="/utilisateurs" class="btn btn-link"><p class="paragraph mt-3">Annuler</p></a>
+    </div>
+  </form>

@@ -14,57 +14,25 @@
                 Use your account to sign in
               </h6>
             </div>
-            <!-- <div class="btn-wrapper text-center">
-              <button
-                class="bg-white active:bg-gray-100 text-gray-800  px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs"
-                type="button"
-                style={{ transition: "all .15s ease" }}
-                onClick={() => signIn('github')}
-              >
-                <Image
-                  alt="..."
-                  class="w-5 mr-1"
-                  src={require("../assets/img/github.svg").default}
-                  width={25}
-                />
-                Github
-              </button>
-              <button
-                class="bg-white active:bg-gray-100 text-gray-800  px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs"
-                type="button"
-                style={{ transition: "all .15s ease" }}
-                onClick={() => signIn('google')}
-              >
-                <Image
-                  alt="..."
-                  class="w-5 mr-1"
-                  src={require("../assets/img/google.svg").default}
-                  width={25}
-                />
-                Google
-              </button>
-            </div> -->
+
           </div>
           <div class="flex-auto px-4 lg:px-10 py-5 pt-0">
-    <!-- <div class="text-gray-500 text-center mb-3 font-bold">
-              <small>Or {isLogin ? 'sign in' : 'sign up'} with credentials</small>
-    </div> -->
 <form [formGroup]="form" (ngSubmit)="onSubmit()" >
 <div class="relative w-full mb-3">
       <label
           class="block uppercase text-gray-700 text-xs font-bold mb-2"
-          htmlFor="grid-password"
+          htmlFor="grid-email"
       >
           Email
       </label>
-      <input         formControlName="email"                  type="text"
+      <input         formControlName="email"                  type="email"
                   class=" form-control border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                   placeholder="Email"
                    required 
                     [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" 
                    />
-                   <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-                    <div *ngIf="f['email'].errors['required']">Email est requis</div>
+                   <div *ngIf="submitted && f['email'].errors" class="invalid-feedback text-red-500 text-xs italic">
+                    <div *ngIf="f['email'].errors['required']">email can't be empty</div>
                   </div>
   </div>
   <div class="relative w-full mb-3">
@@ -82,8 +50,8 @@
           required
           
           />
-          <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-            <div *ngIf="f['password'].errors['required'] ">Mot de passe est requis</div>
+          <div *ngIf="submitted && f['password'].errors" class="invalid-feedback text-red-500 text-xs italic ">
+            <div *ngIf="f['password'].errors['required'] ">password can't be empty</div>
         </div>
   </div>
   <div>
@@ -102,16 +70,17 @@
               </div> 
   
   <div class="text-center mt-6">
-      <button                         
+      <button                       
           class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-                  type="button"
+                  type="submit"
+                 
                   >Sign in</button>
                   <div class='space-x-12'>
-                <a
+                <a routerLink="/auth/register"
     type='button'
     class="cursor-pointer text-gray-600 pt-3"
   >
-    <small class="cursor-pointer text-sm">Create new account</small>
+    <small  class="cursor-pointer text-sm">Create new account</small>
 
   </a>
   <a><small class="space-x-4 text-xs text-gray-500 cursor-pointer">Forget password ?</small></a>

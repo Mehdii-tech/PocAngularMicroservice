@@ -5,7 +5,7 @@ import com.example.pocemainfo.domain.Utilisateur;
 
 public interface AccountService {
 
-    public Utilisateur saveUser(String email, String password);
+    public Utilisateur saveUser(String email, String password, String name);
     public Role      save(Role name);
     public Utilisateur loadUserByEmail(String email);
     public void addRoleToUser(String email,String name);

@@ -2,3 +2,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  user-select: none;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  outline: none;
+  background-color: #141414;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
